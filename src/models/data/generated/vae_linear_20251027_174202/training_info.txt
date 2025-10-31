@@ -1,0 +1,7 @@
+model_type: linear
+epochs: 30
+latent_dim: 32
+beta: 1.0
+final_loss: 0.0011044512486375235
+device: cpu
+timestamp: 20251027_174202
