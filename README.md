@@ -27,7 +27,7 @@ This project demonstrates the potential and challenges of reinforcement learning
 
 Our results highlight the importance of data representation and the trade-offs between computational efficiency and learning performance in visual RL tasks.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 RL_Project-with-Visual_Input/
