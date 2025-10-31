@@ -17,7 +17,7 @@ This research project explores the application of reinforcement learning (RL) to
 - [Contributing](#contributing)
 - [References](#references)
 
-## 🎯 Abstract
+## Abstract
 
 This project demonstrates the potential and challenges of reinforcement learning in environments where agents must learn from visual observations. We conduct three main experiments:
 
