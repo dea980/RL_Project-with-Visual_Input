@@ -1,0 +1,46 @@
+# VAE Configuration - Updated for improved training
+vae:
+  linear:
+    latent_dim: 500  # Increased to match original approach
+    hidden_dims: [1024, 1024]
+    learning_rate: 1e-3
+    beta: 1.0
+    epochs: 5  # Reduced to match original approach
+    batch_size: 64  # Increased for better training
+    
+  conv:
+    latent_dim: 500  # Increased to match original approach
+    hidden_channels: [8, 16]
+    learning_rate: 1e-3
+    beta: 1.0
+    epochs: 5  # Reduced to match original approach
+    batch_size: 64  # Increased for better training
+    
+# Data preprocessing
+preprocessing:
+  image_size: [64, 64]
+  normalize: true
+  grayscale: true
+  
+# Training settings
+training:
+  device: "auto"
+  seed: 42
+  save_freq: 5
+  log_freq: 1
+  
+# Generation settings
+generation:
+  num_samples: 10
+  save_images: true
+  output_dir: "data/generated"
+
+# Model types to train
+model_types: ["linear", "conv"]
+
+# pythae option
+use_pythae: false  # Set to true to use pythae library
+
+# Data settings
+frames_dir: "data/raw/cartpole"
+output_dir: "data/generated"

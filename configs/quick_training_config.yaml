@@ -1,0 +1,60 @@
+# Quick Training Configuration
+# Based on original approach with improvements
+
+# Environment settings
+image_size: 64
+num_frames: 5  # 5-frame stacking for temporal information
+
+# Directories
+log_dir: "results/logs/quick_training"
+model_dir: "results/models/quick_training"
+image_dir: "data/raw/cartpole_quick"
+test_image_dir: "data/raw/cartpole_test"
+
+# Training phases (progressive improvement)
+training_phases:
+  - name: "Initial Training"
+    steps: 1000
+    learning_rate: 3e-4
+    n_steps: 64
+    batch_size: 32
+    n_epochs: 4
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_range: 0.2
+    ent_coef: 0.01
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+  
+  - name: "Extended Training"
+    steps: 5000
+    learning_rate: 1e-4
+    n_steps: 128
+    batch_size: 64
+    n_epochs: 4
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_range: 0.2
+    ent_coef: 0.01
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+  
+  - name: "Fine-tuning"
+    steps: 10000
+    learning_rate: 5e-5
+    n_steps: 256
+    batch_size: 128
+    n_epochs: 4
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_range: 0.2
+    ent_coef: 0.01
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+
+# Success threshold
+success_threshold: 450  # Consider solved if average reward >= 450
+
+# Test settings
+test_episodes: 100
+max_steps_per_episode: 500

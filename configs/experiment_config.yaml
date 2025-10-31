@@ -1,0 +1,79 @@
+# Experiment Configuration
+experiments:
+  exp1_native:
+    name: "Native State RL"
+    description: "Reinforcement learning with native state representation using PPO and MLP"
+    algorithm: "PPO"
+    policy: "MlpPolicy"
+    total_timesteps: 100000
+    learning_rate: 3e-4
+    batch_size: 64
+    n_epochs: 10
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_range: 0.2
+    ent_coef: 0.0
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+    
+  exp2_cnn_before:
+    name: "CNN Before VAE"
+    description: "Reinforcement learning with CNN processing visual inputs directly"
+    algorithm: "PPO"
+    policy: "CnnPolicy"
+    total_timesteps: 200000
+    learning_rate: 3e-4
+    batch_size: 32
+    n_epochs: 10
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_range: 0.2
+    ent_coef: 0.0
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+    image_size: [64, 64]
+    num_frames: 5
+    
+  exp3_cnn_after:
+    name: "CNN After VAE"
+    description: "Reinforcement learning with VAE-encoded visual inputs processed by CNN"
+    algorithm: "PPO"
+    policy: "CnnPolicy"
+    total_timesteps: 200000
+    learning_rate: 3e-4
+    batch_size: 32
+    n_epochs: 10
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_range: 0.2
+    ent_coef: 0.0
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+    vae_latent_dim: 32
+    vae_epochs: 30
+    vae_beta: 1.0
+
+# Environment settings
+environment:
+  name: "CartPole-v1"
+  max_episode_steps: 500
+  render_mode: "rgb_array"
+  
+# Data settings
+data:
+  image_dir: "data/raw/cartpole"
+  processed_dir: "data/processed"
+  generated_dir: "data/generated"
+  
+# Training settings
+training:
+  device: "auto"  # "auto", "cpu", "cuda"
+  seed: 42
+  verbose: 1
+  tensorboard_log: "results/logs"
+  
+# Evaluation settings
+evaluation:
+  n_eval_episodes: 10
+  eval_freq: 10000
+  deterministic: true

@@ -1,0 +1,89 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyTorch
+*.pth
+*.pt
+
+# Data files
+data/raw/
+data/processed/
+data/generated/
+*.mat
+*.npy
+*.npz
+
+# Results
+results/logs/
+results/models/
+results/plots/
+*.png
+*.jpg
+*.jpeg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Weights & Biases
+wandb/
+
+# TensorBoard
+runs/
+
+# monitor.csv
+monitor.csv
+
+# Experiment artifacts
+experiments/**/results/
+experiments/**/logs/
+experiments/**/models/
+test_logs/
+
+# Third-party clones
+notebooks/stable-baselines3/
